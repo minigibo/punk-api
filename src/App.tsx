@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="app">
       <h1>Beer Catalog</h1>
-      <div className="beer-list">
+      <div className="beerList">
         {beers.map((beer: Beer) => (
           <Card key={beer.id} beer={beer} />
         ))}
