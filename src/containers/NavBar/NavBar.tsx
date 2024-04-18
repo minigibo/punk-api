@@ -12,7 +12,7 @@ const NavBar = ({ setIsFullWidth }: NavBarProps) => {
 
   const toggleNav = () => {
     setShowNav(!showNav);
-    setIsFullWidth(!showNav);
+    setIsFullWidth(showNav);
   };
 
   const handleMenuClose = () => {
