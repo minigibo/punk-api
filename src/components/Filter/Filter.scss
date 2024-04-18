@@ -1,0 +1,14 @@
+@use "../../assets/styles/variables" as *;
+
+.filter-item {
+  font-size: medium;
+  padding-top: 20px;
+}
+
+.filter-item input:checked {
+  &.checked {
+    background-color: $vibrant-blue;
+    border-color: $vibrant-blue;
+    color: white;
+  }
+}

@@ -7,9 +7,15 @@ type NavBarProps = {
   setIsFullWidth: (value: boolean) => void;
   handleInput: (event: FormEvent<HTMLInputElement>) => void;
   searchTerm: string;
+  handleFiltersChange: (filters: string[]) => void;
 };
 
-const NavBar = ({ setIsFullWidth, handleInput, searchTerm }: NavBarProps) => {
+const NavBar = ({
+  setIsFullWidth,
+  handleInput,
+  searchTerm,
+  handleFiltersChange,
+}: NavBarProps) => {
   const [showNav, setShowNav] = useState(true);
 
   const toggleNav = () => {
@@ -29,6 +35,7 @@ const NavBar = ({ setIsFullWidth, handleInput, searchTerm }: NavBarProps) => {
           onClose={handleMenuClose}
           handleInput={handleInput}
           searchTerm={searchTerm}
+          handleFiltersChange={handleFiltersChange}
         />
       )}
       <img

@@ -12,7 +12,7 @@ const SearchBox = ({ searchTerm, handleInput }: SearchBoxProps) => {
       type="text"
       value={searchTerm}
       onInput={handleInput}
-      placeholder="Filter by name"
+      placeholder="Filter by Name"
       className="user-input"
     />
   );
