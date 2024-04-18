@@ -1,5 +1,5 @@
 import "./NavMenu.scss";
-import close from "../../assets/images/close.png";
+import close from "../../assets/images/closeSVG.svg";
 
 type NavMenuProps = {
   onClose: () => void;

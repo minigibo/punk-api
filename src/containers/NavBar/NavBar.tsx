@@ -3,24 +3,35 @@ import menu from "../../assets/images/menu.png";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import "./NavBar.scss";
 
-const NavBar = () => {
-  const [showNav, setShowNav] = useState(false);
+type NavBarProps = {
+  setIsFullWidth: (value: boolean) => void;
+};
+
+const NavBar = ({ setIsFullWidth }: NavBarProps) => {
+  const [showNav, setShowNav] = useState(true);
 
   const toggleNav = () => {
     setShowNav(!showNav);
+    setIsFullWidth(!showNav);
+  };
+
+  const handleMenuClose = () => {
+    setShowNav(false);
+    setIsFullWidth(true);
   };
 
   return (
     <nav className="navBar">
-      {showNav && <NavMenu onClose={toggleNav} />}
+      {showNav && <NavMenu onClose={handleMenuClose} />}
       <img
         src={menu}
         className="navBar__icon"
         alt="menu icon"
         onClick={toggleNav}
       />
-      <h1 className="navBar__title">Beer Catalogue</h1>
-      {showNav && <NavMenu onClose={toggleNav} />}
+      <h1 className={`navBar__title ${!showNav ? "full-width" : ""}`}>
+        Beer Catalogue
+      </h1>
     </nav>
   );
 };

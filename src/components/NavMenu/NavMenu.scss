@@ -7,11 +7,12 @@
   width: 20%;
   height: 100%;
   z-index: 2;
-  background-color: $vibrant-blue;
+  background-color: $background-color;
   transition: transform 0.3s ease-in-out;
 
   &__content {
     padding: 2rem;
+    color: $vibrant-blue;
   }
 
   &__close {

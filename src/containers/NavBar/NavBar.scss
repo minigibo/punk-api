@@ -7,6 +7,7 @@
   align-items: center;
   padding: 2rem 3rem;
   height: 3.75rem;
+  padding-top: 4rem;
 
   &__icon {
     height: 1.875rem;
@@ -14,8 +15,17 @@
 
   &__title {
     position: absolute;
+    margin-left: 20%;
+    font-size: 3rem;
+    color: $background-color;
+  }
+
+  &__title.full-width {
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
+    font-size: 3rem;
+    color: $background-color;
   }
 }
