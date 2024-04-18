@@ -35,3 +35,15 @@
 .nav-menu.closed {
   transform: translateX(-100%);
 }
+
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1308px) {
+  .nav-menu {
+    width: 30%;
+  }
+}

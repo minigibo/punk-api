@@ -29,3 +29,17 @@
     color: $background-color;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .navBar__title.full-width {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1308px) {
+  .navBar {
+    &__title {
+      margin-left: 30%;
+    }
+  }
+}
