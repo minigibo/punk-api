@@ -49,6 +49,7 @@ const App = () => {
         handleInput={handleInput}
         searchTerm={searchTerm}
         handleFiltersChange={handleFiltersChange}
+        activeFilters={activeFilters}
       />
       <div className={`app__beerList ${isFullWidth ? "full-width" : ""}`}>
         {filteredBeers.map((beer: Beer) => (

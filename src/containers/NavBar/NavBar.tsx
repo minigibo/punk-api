@@ -8,6 +8,7 @@ type NavBarProps = {
   handleInput: (event: FormEvent<HTMLInputElement>) => void;
   searchTerm: string;
   handleFiltersChange: (filters: string[]) => void;
+  activeFilters: string[];
 };
 
 const NavBar = ({
@@ -15,6 +16,7 @@ const NavBar = ({
   handleInput,
   searchTerm,
   handleFiltersChange,
+  activeFilters,
 }: NavBarProps) => {
   const [showNav, setShowNav] = useState(true);
 
@@ -36,6 +38,7 @@ const NavBar = ({
           handleInput={handleInput}
           searchTerm={searchTerm}
           handleFiltersChange={handleFiltersChange}
+          activeFilters={activeFilters}
         />
       )}
       <img

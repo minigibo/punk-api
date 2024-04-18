@@ -9,6 +9,7 @@ type NavMenuProps = {
   handleInput: FormEventHandler<HTMLInputElement>;
   searchTerm: string;
   handleFiltersChange: (filters: string[]) => void;
+  activeFilters: string[];
 };
 
 const NavMenu = ({
@@ -16,6 +17,7 @@ const NavMenu = ({
   handleInput,
   searchTerm,
   handleFiltersChange,
+  activeFilters,
 }: NavMenuProps) => {
   return (
     <div className="nav-menu" onClick={(e) => e.stopPropagation()}>
@@ -28,7 +30,10 @@ const NavMenu = ({
         />
         <div className="nav-menu__filtering">
           <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
-          <Filters handleFiltersChange={handleFiltersChange} />
+          <Filters
+            handleFiltersChange={handleFiltersChange}
+            activeFilters={activeFilters}
+          />
         </div>
       </div>
     </div>
