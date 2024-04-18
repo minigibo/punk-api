@@ -1,0 +1,32 @@
+@use "../../assets/styles/variables" as *;
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 2;
+  background-color: $vibrant-blue;
+  transition: transform 0.3s ease-in-out;
+
+  &__content {
+    padding: 2rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  &__item {
+    font-size: 1.875rem;
+    text-decoration: none;
+    padding: 1.25rem;
+  }
+}
+
+.nav-menu.closed {
+  transform: translateX(-100%);
+}

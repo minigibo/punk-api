@@ -1,0 +1,21 @@
+@use "../../assets/styles/_variables.scss" as *;
+
+.navBar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  height: 3.75rem;
+
+  &__icon {
+    height: 1.875rem;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+}
