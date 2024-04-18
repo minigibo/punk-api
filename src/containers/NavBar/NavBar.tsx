@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import menu from "../../assets/images/menu.png";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import "./NavBar.scss";
 
 type NavBarProps = {
   setIsFullWidth: (value: boolean) => void;
+  handleInput: (event: FormEvent<HTMLInputElement>) => void;
+  searchTerm: string;
 };
 
-const NavBar = ({ setIsFullWidth }: NavBarProps) => {
+const NavBar = ({ setIsFullWidth, handleInput, searchTerm }: NavBarProps) => {
   const [showNav, setShowNav] = useState(true);
 
   const toggleNav = () => {
@@ -22,7 +24,13 @@ const NavBar = ({ setIsFullWidth }: NavBarProps) => {
 
   return (
     <nav className="navBar">
-      {showNav && <NavMenu onClose={handleMenuClose} />}
+      {showNav && (
+        <NavMenu
+          onClose={handleMenuClose}
+          handleInput={handleInput}
+          searchTerm={searchTerm}
+        />
+      )}
       <img
         src={menu}
         className="navBar__icon"

@@ -1,11 +1,15 @@
 import "./NavMenu.scss";
 import close from "../../assets/images/closeSVG.svg";
+import { FormEventHandler } from "react";
+import SearchBox from "../SearchBox/SearchBox";
 
 type NavMenuProps = {
   onClose: () => void;
+  handleInput: FormEventHandler<HTMLInputElement>;
+  searchTerm: string;
 };
 
-const NavMenu = ({ onClose }: NavMenuProps) => {
+const NavMenu = ({ onClose, handleInput, searchTerm }: NavMenuProps) => {
   return (
     <div className="nav-menu">
       <div className="nav-menu__content">
@@ -15,12 +19,11 @@ const NavMenu = ({ onClose }: NavMenuProps) => {
           className="nav-menu__close"
           onClick={onClose}
         />
-        <div className="nav-menu__item" onClick={onClose}>
-          Home
-        </div>
-
-        <div className="nav-menu__item" onClick={onClose}>
-          Beers
+        <div className="nav-menu__filtering">
+          <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
+          <div className="nav-menu__item" onClick={onClose}>
+            Beers
+          </div>
         </div>
       </div>
     </div>

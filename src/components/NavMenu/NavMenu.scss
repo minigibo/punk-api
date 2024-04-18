@@ -22,9 +22,13 @@
   }
 
   &__item {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     text-decoration: none;
-    padding: 1.25rem;
+  }
+
+  &__filtering {
+    position: absolute;
+    top: 5rem;
   }
 }
 

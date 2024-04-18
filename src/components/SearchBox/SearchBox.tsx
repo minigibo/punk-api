@@ -1,4 +1,5 @@
 import { FormEventHandler } from "react";
+import "./SearchBox.scss";
 
 type SearchBoxProps = {
   searchTerm: string;
