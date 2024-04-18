@@ -59,3 +59,9 @@ type Volume = {
   value: number;
   unit: string;
 };
+
+export type FilterType = {
+  value: string;
+  label: string;
+  isChecked: boolean;
+};
