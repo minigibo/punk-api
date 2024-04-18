@@ -22,7 +22,7 @@ const NavMenu = ({ onClose, handleInput, searchTerm }: NavMenuProps) => {
         <div className="nav-menu__filtering">
           <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
           <div className="nav-menu__item" onClick={onClose}>
-            Beers
+            Filter by ABV
           </div>
         </div>
       </div>
