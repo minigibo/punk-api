@@ -40,6 +40,12 @@
       flex-direction: column;
     }
   }
+
+  .nav-menu__driving {
+    position: absolute; /* Change to absolute positioning */
+    bottom: 0;
+    padding-bottom: 2rem;
+  }
 }
 
 .nav-menu.closed {
