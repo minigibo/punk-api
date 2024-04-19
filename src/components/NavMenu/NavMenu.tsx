@@ -30,7 +30,9 @@ const NavMenu = ({
           onClick={onClose}
         />
         <div className="nav-menu__filtering">
-          <Link to="/">Home</Link>
+          <Link to="/" className="nav-menu__filtering-link">
+            Home
+          </Link>
           <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
           <Filters
             handleFiltersChange={handleFiltersChange}

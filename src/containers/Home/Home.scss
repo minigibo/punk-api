@@ -1,0 +1,36 @@
+@use "../../assets/styles/_variables.scss" as *;
+
+.home {
+  .home__beerList {
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px;
+    transition: margin-left 0.3s ease-in-out;
+    margin: 0 0 0 auto;
+  }
+
+  .home__beerList.full-width {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    .home__beerList {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1308px) {
+  .home {
+    .home__beerList {
+      grid-template-columns: 1fr 1fr;
+      width: 70%;
+    }
+  }
+}

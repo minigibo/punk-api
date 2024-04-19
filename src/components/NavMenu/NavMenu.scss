@@ -29,6 +29,12 @@
   &__filtering {
     position: absolute;
     top: 5rem;
+
+    &-link {
+      font-size: 1.5rem;
+      color: $vibrant-blue;
+      text-decoration: none;
+    }
   }
 }
 
