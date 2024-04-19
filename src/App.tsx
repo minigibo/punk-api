@@ -1,9 +1,11 @@
 import "./App.scss";
-import Card from "./components/Card/Card";
 import { Beer } from "./data/types";
 import beers from "./data/beers";
 import NavBar from "./containers/NavBar/NavBar";
 import { useState, FormEvent } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./containers/Home/Home";
+import BeerInfoCard from "./containers/BeerInfo/BeerInfo";
 
 const App = () => {
   const [isFullWidth, setIsFullWidth] = useState(false);
@@ -43,20 +45,26 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <NavBar
-        setIsFullWidth={setIsFullWidth}
-        handleInput={handleInput}
-        searchTerm={searchTerm}
-        handleFiltersChange={handleFiltersChange}
-        activeFilters={activeFilters}
-      />
-      <div className={`app__beerList ${isFullWidth ? "full-width" : ""}`}>
-        {filteredBeers.map((beer: Beer) => (
-          <Card key={beer.id} beer={beer} />
-        ))}
+    <BrowserRouter>
+      <div className="app">
+        <NavBar
+          setIsFullWidth={setIsFullWidth}
+          handleInput={handleInput}
+          searchTerm={searchTerm}
+          handleFiltersChange={handleFiltersChange}
+          activeFilters={activeFilters}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home filteredBeers={filteredBeers} isFullWidth={isFullWidth} />
+            }
+          />
+          <Route path="/beer/:beerId" element={<BeerInfoCard />} />
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
 

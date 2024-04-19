@@ -3,6 +3,7 @@ import close from "../../assets/images/closeSVG.svg";
 import { FormEventHandler } from "react";
 import SearchBox from "../SearchBox/SearchBox";
 import Filters from "../Filter/Filter";
+import { Link } from "react-router-dom";
 
 type NavMenuProps = {
   onClose: () => void;
@@ -29,6 +30,7 @@ const NavMenu = ({
           onClick={onClose}
         />
         <div className="nav-menu__filtering">
+          <Link to="/">Home</Link>
           <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
           <Filters
             handleFiltersChange={handleFiltersChange}
