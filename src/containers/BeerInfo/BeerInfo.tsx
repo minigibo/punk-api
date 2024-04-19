@@ -4,7 +4,11 @@ import { Beer } from "../../data/types";
 import beers from "../../data/beers";
 import "./BeerInfo.scss";
 
-const BeerInfoCard = () => {
+type BeerInfoCardProps = {
+  isFullWidth: boolean;
+};
+
+const BeerInfoCard = ({ isFullWidth }: BeerInfoCardProps) => {
   const { beerId } = useParams<{ beerId?: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
 
@@ -19,7 +23,7 @@ const BeerInfoCard = () => {
   }
 
   return (
-    <div className="beer-info-card">
+    <div className={`beer-info-card ${isFullWidth ? "full-width" : ""}`}>
       <img
         src={beer.image_url}
         alt={beer.name}

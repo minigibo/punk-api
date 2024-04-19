@@ -61,7 +61,10 @@ const App = () => {
               <Home filteredBeers={filteredBeers} isFullWidth={isFullWidth} />
             }
           />
-          <Route path="/beer/:beerId" element={<BeerInfoCard />} />
+          <Route
+            path="/beer/:beerId"
+            element={<BeerInfoCard isFullWidth={isFullWidth} />}
+          />
         </Routes>
       </div>
     </HashRouter>

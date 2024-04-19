@@ -33,6 +33,13 @@
   }
 }
 
+.beer-info-card.full-width {
+  width: 100%;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
   .beer-info-card {
     display: flex;
