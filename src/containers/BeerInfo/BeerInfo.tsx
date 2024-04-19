@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Beer } from "../../data/types";
 import beers from "../../data/beers";
+import "./BeerInfo.scss";
 
 const BeerInfoCard = () => {
   const { beerId } = useParams<{ beerId?: string }>();
@@ -14,7 +15,7 @@ const BeerInfoCard = () => {
   }, [beerId]);
 
   if (!beer) {
-    return <div>Loading...</div>;
+    return <div>Unable to display...</div>;
   }
 
   return (
@@ -29,6 +30,10 @@ const BeerInfoCard = () => {
         <p className="beer-info-card__description">{beer.description}</p>
         <p className="beer-info-card__abv">ABV: {beer.abv}%</p>
         <p className="beer-info-card__ibu">IBU: {beer.ibu}</p>
+        <div className="beer-info-card__food-pairing">
+          <h3>This beer goes great with:</h3>
+          <p>{beer.food_pairing.join(", ")}.</p>
+        </div>
       </div>
     </div>
   );

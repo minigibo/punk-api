@@ -1,0 +1,51 @@
+@use "../../assets/styles/_variables.scss" as *;
+
+.beer-info-card {
+  display: flex;
+  justify-content: start;
+  margin: 0 0 0 auto;
+  height: 100%;
+  width: 80%;
+  padding: 30px;
+  background-color: $background-color;
+
+  .beer-info-card__image {
+    height: 70vh;
+    margin-right: 2rem;
+  }
+
+  .beer-info-card__details {
+    color: $vibrant-blue;
+
+    .beer-info-card__name {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .beer-info-card__description {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .beer-info-card__food-pairing {
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .beer-info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+
+    .beer-info-card__image {
+      height: 50vh;
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
