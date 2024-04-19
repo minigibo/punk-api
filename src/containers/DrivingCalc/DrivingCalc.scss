@@ -56,3 +56,18 @@
 .driving-calculator.full-width {
   width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+  .driving-calculator {
+    &__form {
+      width: 90%;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+    &__result {
+      font-size: 1rem;
+    }
+  }
+}
