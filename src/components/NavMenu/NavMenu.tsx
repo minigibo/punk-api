@@ -41,7 +41,9 @@ const NavMenu = ({
             activeFilters={activeFilters}
           />
         </div>
-        <div className="nav-menu__driving">Driving Calculator</div>
+        <div className="nav-menu__driving">
+          <Link to="/driving-calculator">Driving Calculator</Link>
+        </div>
       </div>
     </div>
   );

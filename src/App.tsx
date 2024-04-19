@@ -6,6 +6,7 @@ import { useState, FormEvent } from "react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import BeerInfoCard from "./containers/BeerInfo/BeerInfo";
+import DrivingCalc from "./containers/DrivingCalc/DrivingCalc";
 
 const App = () => {
   const [isFullWidth, setIsFullWidth] = useState(false);
@@ -64,6 +65,10 @@ const App = () => {
           <Route
             path="/beer/:beerId"
             element={<BeerInfoCard isFullWidth={isFullWidth} />}
+          />
+          <Route
+            path="/driving-calculator"
+            element={<DrivingCalc isFullWidth={isFullWidth} />}
           />
         </Routes>
       </div>

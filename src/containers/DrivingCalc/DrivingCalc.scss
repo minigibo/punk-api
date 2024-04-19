@@ -1,0 +1,58 @@
+@use "../../assets/styles/_variables.scss" as *;
+
+.driving-calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 0 0 0 auto;
+  padding: 20px;
+  width: 80%;
+  background-color: $background-color;
+  color: $vibrant-blue;
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    width: 30%;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+
+    input[type="number"],
+    select {
+      padding: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+
+  &__button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: $vibrant-blue;
+    color: $background-color;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $blue-dark;
+    }
+  }
+
+  &__result {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+}
+
+.driving-calculator.full-width {
+  width: 100%;
+}
