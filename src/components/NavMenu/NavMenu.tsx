@@ -30,10 +30,12 @@ const NavMenu = ({
           onClick={onClose}
         />
         <div className="nav-menu__filtering">
-          <Link to="/" className="nav-menu__filtering-link">
-            Home
-          </Link>
-          <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
+          <div className="nav-menu__filtering-div">
+            <Link to="/" className="nav-menu__filtering-link">
+              Home
+            </Link>
+            <SearchBox searchTerm={searchTerm} handleInput={handleInput} />
+          </div>
           <Filters
             handleFiltersChange={handleFiltersChange}
             activeFilters={activeFilters}

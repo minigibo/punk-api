@@ -3,7 +3,7 @@ import { Beer } from "./data/types";
 import beers from "./data/beers";
 import NavBar from "./containers/NavBar/NavBar";
 import { useState, FormEvent } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import BeerInfoCard from "./containers/BeerInfo/BeerInfo";
 
@@ -45,7 +45,7 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app">
         <NavBar
           setIsFullWidth={setIsFullWidth}
@@ -64,7 +64,7 @@ const App = () => {
           <Route path="/beer/:beerId" element={<BeerInfoCard />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
