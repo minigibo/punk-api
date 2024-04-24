@@ -8,6 +8,7 @@
   padding: 2rem 3rem;
   height: 3.75rem;
   padding-top: 4rem;
+  background-color: $background-color;
 
   &__icon {
     height: 1.875rem;
@@ -17,7 +18,7 @@
     position: absolute;
     margin-left: 20%;
     font-size: 3rem;
-    color: $background-color;
+    color: $vibrant-blue;
   }
 
   &__title.full-width {
@@ -26,7 +27,7 @@
     transform: translateX(-50%);
     margin: 0;
     font-size: 3rem;
-    color: $background-color;
+    color: $vibrant-blue;
   }
 }
 

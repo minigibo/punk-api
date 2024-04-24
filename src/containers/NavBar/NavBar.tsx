@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import menu from "../../assets/images/menu.png";
+import menu from "../../assets/images/menuSVG.svg";
 import NavMenu from "../../components/NavMenu/NavMenu";
 import "./NavBar.scss";
 

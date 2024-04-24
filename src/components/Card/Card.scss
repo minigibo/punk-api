@@ -35,3 +35,21 @@
   font-size: 1rem;
   color: $vibrant-blue;
 }
+
+@media screen and (max-width: 768px) {
+  .beerCard {
+    background-color: $light-back;
+  }
+
+  .beerCard__name {
+    color: $background-color;
+  }
+
+  .beerCard__percent {
+    color: $background-color;
+  }
+
+  .beerCard__desc {
+    color: $background-color;
+  }
+}
