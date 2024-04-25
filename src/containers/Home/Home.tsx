@@ -9,8 +9,11 @@ type HomeProps = {
 
 const Home = ({ filteredBeers, isFullWidth }: HomeProps) => {
   return (
-    <div className="home">
-      <div className={`home__beerList ${isFullWidth ? "full-width" : ""}`}>
+    <div className="home" data-testid="home-container">
+      <div
+        className={`home__beerList ${isFullWidth ? "full-width" : ""}`}
+        data-testid="home__beerList"
+      >
         {filteredBeers.map((beer: Beer) => (
           <Card beer={beer} beerId={beer.id.toString()} />
         ))}
