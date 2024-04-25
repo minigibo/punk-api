@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Beer } from "../../data/types";
-import beers from "../../data/beers";
 import "./BeerInfo.scss";
 
 type BeerInfoCardProps = {
@@ -11,15 +10,41 @@ type BeerInfoCardProps = {
 const BeerInfoCard = ({ isFullWidth }: BeerInfoCardProps) => {
   const { beerId } = useParams<{ beerId?: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!beerId) return;
-    const selectedBeer = beers.find((beer) => beer.id === parseInt(beerId));
-    setBeer(selectedBeer || null);
+
+    const fetchBeer = async (id: string) => {
+      try {
+        const response = await fetch(`http://localhost:3333/v2/beers/${id}`);
+        if (response.ok) {
+          const beerData = await response.json();
+          setBeer(beerData[0] || null);
+        } else {
+          setError("Error fetching beer");
+        }
+      } catch (err) {
+        setError("Error fetching beer");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBeer(beerId);
   }, [beerId]);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   if (!beer) {
-    return <div>Unable to display...</div>;
+    return <div>Beer not found</div>;
   }
 
   return (

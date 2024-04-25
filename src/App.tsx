@@ -1,21 +1,53 @@
 import "./App.scss";
 import { Beer } from "./data/types";
-import beers from "./data/beers";
 import NavBar from "./containers/NavBar/NavBar";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import BeerInfoCard from "./containers/BeerInfo/BeerInfo";
 import DrivingCalc from "./containers/DrivingCalc/DrivingCalc";
 
+const getBeers = async (): Promise<Beer[]> => {
+  let totalArr: Beer[] = [];
+  for (let i = 1; i < 8; i++) {
+    const response = await fetch(
+      `http://localhost:3333/v2/beers/?per_page=50&page=${i}`
+    );
+    if (response.ok) {
+      const formattedResponse = await response.json();
+      totalArr = totalArr.concat(formattedResponse);
+    } else {
+      throw new Error("Failed to fetch beers");
+    }
+  }
+  return totalArr;
+};
+
 const App = () => {
+  const [beers, setBeers] = useState<Beer[]>([]);
   const [isFullWidth, setIsFullWidth] = useState(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchBeers = async () => {
+      try {
+        const beerData = await getBeers();
+        setBeers(beerData);
+      } catch (err) {
+        setError("Error fetching beers");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBeers();
+  }, []);
 
   const handleInput = (event: FormEvent<HTMLInputElement>) => {
-    const userInput = event.currentTarget.value.toLowerCase();
-    setSearchTerm(userInput);
+    setSearchTerm(event.currentTarget.value.toLowerCase());
   };
 
   const applyFilters = (beer: Beer): boolean => {
@@ -55,22 +87,28 @@ const App = () => {
           handleFiltersChange={handleFiltersChange}
           activeFilters={activeFilters}
         />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home filteredBeers={filteredBeers} isFullWidth={isFullWidth} />
-            }
-          />
-          <Route
-            path="/beer/:beerId"
-            element={<BeerInfoCard isFullWidth={isFullWidth} />}
-          />
-          <Route
-            path="/driving-calculator"
-            element={<DrivingCalc isFullWidth={isFullWidth} />}
-          />
-        </Routes>
+        {isLoading ? (
+          <div>Loading beers...</div>
+        ) : error ? (
+          <div>{error}</div>
+        ) : (
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home filteredBeers={filteredBeers} isFullWidth={isFullWidth} />
+              }
+            />
+            <Route
+              path="/beer/:beerId"
+              element={<BeerInfoCard isFullWidth={isFullWidth} />}
+            />
+            <Route
+              path="/driving-calculator"
+              element={<DrivingCalc isFullWidth={isFullWidth} />}
+            />
+          </Routes>
+        )}
       </div>
     </HashRouter>
   );
