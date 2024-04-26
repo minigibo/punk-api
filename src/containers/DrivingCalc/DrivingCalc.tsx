@@ -14,7 +14,7 @@ const DrivingCalc = ({ isFullWidth }: DrivingCalcProps) => {
 
   const calculateBAC = () => {
     const alcoholConsumed = pintsConsumed * 0.568 * 0.05;
-    const weightInKgs = weight * 0.453592;
+    const weightInKgs = weight;
     const genderConstant = gender === "male" ? 0.68 : 0.55;
     const metabolicRate = 0.017;
     const timeInHours = timeSinceFirstDrink;
