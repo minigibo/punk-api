@@ -48,7 +48,10 @@ const BeerInfoCard = ({ isFullWidth }: BeerInfoCardProps) => {
   }
 
   return (
-    <div className={`beer-info-card ${isFullWidth ? "full-width" : ""}`}>
+    <div
+      className={`beer-info-card ${isFullWidth ? "full-width" : ""}`}
+      data-testid="beer-info-card"
+    >
       <img
         src={beer.image_url}
         alt={beer.name}

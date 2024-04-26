@@ -29,7 +29,7 @@ const NavMenu = ({
           className="nav-menu__close"
           onClick={onClose}
         />
-        <div className="nav-menu__filtering">
+        <div className="nav-menu__filtering" data-testid="nav-menu__filtering">
           <div className="nav-menu__filtering-div">
             <Link to="/" className="nav-menu__filtering-link">
               Home

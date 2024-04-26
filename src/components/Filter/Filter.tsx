@@ -57,7 +57,7 @@ const Filters = ({ handleFiltersChange, activeFilters }: FiltersProps) => {
   ];
 
   return (
-    <div className="filters-list">
+    <div className="filters-list" data-testid="filters-list">
       {filters.map((filter, index) => getFilter(filter, index))}
     </div>
   );
