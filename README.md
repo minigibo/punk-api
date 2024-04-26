@@ -1,30 +1,26 @@
-# React + TypeScript + Vite
+# Beer Catalogue
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Beer Catalogue is a web-based application built with TypeScript and React that allows users to browse and filter a collection of beers. It features responsive design for seamless use across devices and provides various filters for finding the perfect beer.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Beer List: Browse a comprehensive list of beers with details like name, description, ABV, and more.
+- Search Functionality: Filter beers by name.
+- Responsive Design: Works on both desktop and mobile devices.
+- Filter Options: Apply filters like high alcohol content, classic range, or high acidity.
+- Beer Info: Click on a beer card to get detailed information about a specific beer.
+- Navigation: A simple and clean navigation menu for easy access to different sections.
+- Driving Calculator: A tool to estimate blood alcohol content based on user input.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **TypeScript**: Used for the general coding of the site.
+- **React**: The core framework for building the interactive UI.
+- **React Router**: Manages navigation and routing within the application.
+- **CSS/SCSS**: For styling and ensuring a consistent look and feel across the application.
 
-- Configure the top-level `parserOptions` property like this:
+## Instructions:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. **Clone the repository** - Open your terminal and run git clone <repository-url>.
+2. **Install dependencies** - Navigate to the project directory and run npm install.
+3. **Run the web app** - Start the development server with npm run dev.

@@ -8,19 +8,19 @@ import BeerInfoCard from "./containers/BeerInfo/BeerInfo";
 import DrivingCalc from "./containers/DrivingCalc/DrivingCalc";
 
 const getBeers = async (): Promise<Beer[]> => {
-  let totalArr: Beer[] = [];
+  let allBeers: Beer[] = [];
   for (let i = 1; i < 8; i++) {
     const response = await fetch(
       `http://localhost:3333/v2/beers/?per_page=50&page=${i}`
     );
     if (response.ok) {
       const formattedResponse = await response.json();
-      totalArr = totalArr.concat(formattedResponse);
+      allBeers = allBeers.concat(formattedResponse);
     } else {
       throw new Error("Failed to fetch beers");
     }
   }
-  return totalArr;
+  return allBeers;
 };
 
 const App = () => {
